@@ -12,8 +12,11 @@ import java.util.List;
 @RestController
 public class TransactionController {
 
-    @Autowired
-    TransactionService transactionService;
+    private final TransactionService transactionService;
+
+    public TransactionController(TransactionService transactionService){
+        this.transactionService = transactionService;
+    };
 
     @GetMapping(value = "/transactions/{accountNumber}",
             produces = MediaType.APPLICATION_JSON_VALUE)
